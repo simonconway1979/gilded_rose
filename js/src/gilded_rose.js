@@ -9,24 +9,29 @@ var items = [];
 var Update = function() {
 
   Update.prototype.runUpdate = function() {
-    Update.standardItem()
-  }
+    this.standardItem();
+    this.resetNegativeQuality();
+  };
 
   Update.prototype.standardItem = function() {
     for (var i = 0; i < items.length; i++) {
       items[i].sell_in = items[i].sell_in - 1;
       if(items[i].sell_in >= 0) {
         items[i].quality = items[i].quality - 1;
-      } else  {
+      } else {
         items[i].quality = items[i].quality - 2;
-      }
-      if (items[i].quality < 0) {
-        items[i].quality = 0
       }
     }
   };
-}
 
+  Update.prototype.resetNegativeQuality = function() {
+    for (var i = 0; i < items.length; i++) {
+      if (items[i].quality < 0) {
+        items[i].quality = 0;
+      }
+    }
+  };
+};
 
 // function update_quality() {
 //   for (var i = 0; i < items.length; i++) {
