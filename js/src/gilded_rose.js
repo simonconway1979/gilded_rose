@@ -10,6 +10,8 @@ var Update = function() {
 
   Update.prototype.runUpdate = function() {
     this.brie();
+    this.sulfuras();
+    this.backstagePass();
     this.standardItem();
     this.updateQuality();
   };
@@ -58,11 +60,13 @@ var Update = function() {
     for (var i = 0; i < items.length; i++) {
       if(items[i].name != "Aged brie") {
         if(items[i].name != "Sulfuras, Hand of Ragnaros") {
-          items[i].sell_in = items[i].sell_in - 1;
-          if(items[i].sell_in >= 0) {
-            items[i].quality = items[i].quality - 1;
-          } else {
-            items[i].quality = items[i].quality - 2;
+          if(items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
+            items[i].sell_in = items[i].sell_in - 1;
+            if(items[i].sell_in >= 0) {
+              items[i].quality = items[i].quality - 1;
+            } else {
+              items[i].quality = items[i].quality - 2;
+            }
           }
         }
       }
