@@ -43,6 +43,9 @@ var Update = function() {
       if (items[i].quality < 0) {
         items[i].quality = 0;
       }
+      if (items[i].quality > 50) {
+        items[i].quality = 50;
+      }
     }
   };
 };
