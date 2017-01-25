@@ -14,6 +14,7 @@ describe("Guilded rose", function() {
 
     it("when quality is updated and quality is 0, sell in reduces by -1 and quality remains at 0", function() {
       items = [ new Item("Standard", 0, 0) ];
+      update = new Update()
       update_quality();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(-1);
@@ -22,6 +23,7 @@ describe("Guilded rose", function() {
 
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
       items = [ new Item("Standard", -1, 10) ];
+      update = new Update()
       update_quality();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(-2);
