@@ -110,6 +110,33 @@ describe("Guilded rose", function() {
 
   });
 
+  describe("Updating Conjured Item", function() {
+
+    it("On update, it should reduce a conjured items sell in by 1 and quality by 2", function() {
+      items = [ new Item("Standard", 10, 10) ];
+      update = new Update();
+      update.standardItem();
+      expect(items[0].name).toEqual("Standard");
+      expect(items[0].sell_in).toEqual(9);
+      expect(items[0].quality).toEqual(8);
+    });
+
+
+    it("when sell in date is negative, sell in reduces by -1 and quality remains at -4", function() {
+      items = [ new Item("Standard", -1, 10) ];
+      update = new Update();
+      update.standardItem();
+      expect(items[0].name).toEqual("Standard");
+      expect(items[0].quality).toEqual(6);
+    });
+
+  });
+
+
+
+// Tests using runUpdates function
+
+
   describe("Updating Standard Item", function() {
 
     it("On update, it should reduce a standard items sell in by 1 and quality by 1", function() {
