@@ -4,10 +4,12 @@ describe("Guilded rose", function() {
 
     it("On update, it should reduce a standard items sell in by 1 and quality by 1", function() {
       items = [ new Item("Standard", 10, 10) ];
-      update_quality();
+      update = new Update()
+      update.standardItem();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(9);
       expect(items[0].quality).toEqual(9);
+      debugger;
     });
 
     it("when quality is updated and quality is 0, sell in reduces by -1 and quality remains at 0", function() {
