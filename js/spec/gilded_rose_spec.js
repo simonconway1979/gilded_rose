@@ -68,7 +68,7 @@ describe("Guilded rose", function() {
 
     it("For Sufuras, update does not change the sell in or quality value", function() {
       items = [ new Item("Sulfuras, Hand of Ragnaros", 10, 10) ];
-      update_quality();
+      update.sulfuras();
       expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
       expect(items[0].sell_in).toEqual(10);
       expect(items[0].quality).toEqual(10);
@@ -76,7 +76,7 @@ describe("Guilded rose", function() {
 
     it("For Sufuras, update does not change the sell in or quality value, even when negative", function() {
       items = [ new Item("Sulfuras, Hand of Ragnaros", -10, -10) ];
-      update_quality();
+      update.sulfuras();
       expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
       expect(items[0].sell_in).toEqual(-10);
       expect(items[0].quality).toEqual(-10);
@@ -201,6 +201,24 @@ describe("Guilded rose", function() {
     });
   });
 
+  describe("Updating Sulfuras, Hand of Ragnaros", function() {
+
+    it("For Sufuras, update does not change the sell in or quality value", function() {
+      items = [ new Item("Sulfuras, Hand of Ragnaros", 10, 10) ];
+      update.runUpdate();
+      expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
+      expect(items[0].sell_in).toEqual(10);
+      expect(items[0].quality).toEqual(10);
+    });
+
+    it("For Sufuras, update does not change the sell in or quality value, even when negative", function() {
+      items = [ new Item("Sulfuras, Hand of Ragnaros", -10, -10) ];
+      update.runUpdate();
+      expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
+      expect(items[0].sell_in).toEqual(-10);
+      expect(items[0].quality).toEqual(-10);
+    });
+  });
 
 
 });
