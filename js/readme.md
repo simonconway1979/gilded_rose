@@ -54,7 +54,9 @@ This means that my tests should still all pass when the refactored code is run.
 
 ## Installation
 
-Clone this repo:
+Clone this repo: https://github.com/simonconway1979/gilded_rose.git
+
+Change the folder to js (Note: all files for this kata are included in the js folder as I completed it in JavaScript. I copied the rest in case I wanted to repeat this in other languages, but I have not completed these yet.)
 
 Copy the full path for the SpecRunner.html file and paste this into a web browser. This will run the tests.
 
