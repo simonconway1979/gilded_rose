@@ -5,6 +5,7 @@ function Item(name, sell_in, quality) {
 }
 
 var items = [];
+var nonStandardItems = ["Aged brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"];
 
 var Update = function() {
 
@@ -21,6 +22,9 @@ var Update = function() {
       }
     };
 
+  // Update.prototype.isNonStandardItem = function() {
+  //   items
+  // };
 
   Update.prototype.brie = function() {
     for (var i = 0; i < items.length; i++) {

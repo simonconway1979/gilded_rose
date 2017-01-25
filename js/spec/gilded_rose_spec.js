@@ -9,7 +9,9 @@ describe("Guilded rose", function() {
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(9);
       expect(items[0].quality).toEqual(9);
+      // debugger;
     });
+
 
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
       items = [ new Item("Standard", -1, 10) ];
@@ -61,25 +63,6 @@ describe("Guilded rose", function() {
       expect(items[0].name).toEqual("Aged brie");
       expect(items[0].sell_in).toEqual(-2);
       expect(items[0].quality).toEqual(12);
-    });
-  });
-
-  describe("Updating Sulfuras, Hand of Ragnaros", function() {
-
-    it("For Sufuras, update does not change the sell in or quality value", function() {
-      items = [ new Item("Sulfuras, Hand of Ragnaros", 10, 10) ];
-      update.sulfuras();
-      expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
-      expect(items[0].sell_in).toEqual(10);
-      expect(items[0].quality).toEqual(10);
-    });
-
-    it("For Sufuras, update does not change the sell in or quality value, even when negative", function() {
-      items = [ new Item("Sulfuras, Hand of Ragnaros", -10, -10) ];
-      update.sulfuras();
-      expect(items[0].name).toEqual("Sulfuras, Hand of Ragnaros");
-      expect(items[0].sell_in).toEqual(-10);
-      expect(items[0].quality).toEqual(-10);
     });
   });
 
