@@ -10,7 +10,6 @@ var Update = function() {
 
   Update.prototype.runUpdate = function() {
     this.brie();
-    this.sulfuras();
     this.backstagePass();
     this.standardItem();
     this.updateQuality();
