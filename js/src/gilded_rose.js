@@ -9,6 +9,7 @@ var items = [];
 var Update = function() {
 
   Update.prototype.runUpdate = function() {
+    this.brie();
     this.standardItem();
     this.resetNegativeQuality();
   };
