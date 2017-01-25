@@ -63,7 +63,7 @@ describe("Guilded rose", function() {
       expect(items[0].quality).toEqual(12);
     });
   });
-  //
+
   // describe("Updating Sulfuras, Hand of Ragnaros", function() {
   //
   //   it("For Sufuras, update does not change the sell in or quality value", function() {
@@ -145,6 +145,7 @@ describe("Guilded rose", function() {
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(9);
       expect(items[0].quality).toEqual(9);
+
     });
 
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
@@ -166,12 +167,12 @@ describe("Guilded rose", function() {
       update = new Update()
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");
-      expect(items[0].sell_in).toEqual(0);
+      expect(items[0].sell_in).toEqual(-1);
       expect(items[0].quality).toEqual(0);
     });
 
     it("when quality is over 50, the updateQuality method resets to 50", function() {
-      items = [ new Item("Standard", 0, 51)];
+      items = [ new Item("Standard", 1, 51)];
       update = new Update()
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");

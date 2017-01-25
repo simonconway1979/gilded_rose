@@ -16,25 +16,27 @@ var Update = function() {
 
   Update.prototype.brie = function() {
     for (var i = 0; i < items.length; i++) {
-        if(items[i].name === "Aged brie")
+      if(items[i].name === "Aged brie") {
         items[i].sell_in = items[i].sell_in - 1;
         if(items[i].sell_in >= 0) {
           items[i].quality = items[i].quality + 1;
         } else {
           items[i].quality = items[i].quality + 2;
+        }
       }
     }
   }
 
-
   Update.prototype.standardItem = function() {
     for (var i = 0; i < items.length; i++) {
-      items[i].sell_in = items[i].sell_in - 1;
-      if(items[i].sell_in >= 0) {
-        items[i].quality = items[i].quality - 1;
-      } else {
-        items[i].quality = items[i].quality - 2;
-      }
+      if(items[i].name != "Aged brie") {
+        items[i].sell_in = items[i].sell_in - 1;
+        if(items[i].sell_in >= 0) {
+          items[i].quality = items[i].quality - 1;
+        } else {
+          items[i].quality = items[i].quality - 2;
+        }
+      }  
     }
   };
 
