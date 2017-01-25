@@ -5,7 +5,7 @@ function Item(name, sell_in, quality) {
 }
 
 var items = [];
-var nonStandardItems = ["Aged brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros"];
+var nonStandardItems = ["Aged brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "conjured item"];
 
 var Update = function() {
 
@@ -50,6 +50,19 @@ var Update = function() {
           items[i].quality = items[i].quality + 3;
         } else {
           items[i].quality = items[i].quality = 0;
+        }
+        this.updateSell_in();
+      }
+    }
+  };
+
+  Update.prototype.conjuredItem = function() {
+    for (var i = 0; i < items.length; i++) {
+      if(items[i].name === "Conjured item") {
+        if(items[i].sell_in >= 0) {
+          items[i].quality = items[i].quality - 2;
+        } else {
+          items[i].quality = items[i].quality - 4;
         }
         this.updateSell_in();
       }
