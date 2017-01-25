@@ -11,15 +11,6 @@ describe("Guilded rose", function() {
       expect(items[0].quality).toEqual(9);
     });
 
-    it("when quality is negative, the updateQuality method resets to 0", function() {
-      items = [ new Item("Standard", 0, -1)];
-      update = new Update()
-      update.resetQuality();
-      expect(items[0].name).toEqual("Standard");
-      expect(items[0].sell_in).toEqual(0);
-      expect(items[0].quality).toEqual(0);
-    });
-
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
       items = [ new Item("Standard", -1, 10) ];
       update = new Update()
@@ -30,6 +21,30 @@ describe("Guilded rose", function() {
     });
 
   });
+
+
+describe 'Update quality should set quality to within the allowed range (0-50)'
+
+  it("when quality is negative, the updateQuality method resets to 0", function() {
+    items = [ new Item("Standard", 0, -1)];
+    update = new Update()
+    update.updateQuality();
+    expect(items[0].name).toEqual("Standard");
+    expect(items[0].sell_in).toEqual(0);
+    expect(items[0].quality).toEqual(0);
+  });
+
+
+    it("when quality is over 50, the updateQuality method resets to 50", function() {
+      items = [ new Item("Standard", 0, 51)];
+      update = new Update()
+      update.updateQuality();
+      expect(items[0].name).toEqual("Standard");
+      expect(items[0].sell_in).toEqual(0);
+      expect(items[0].quality).toEqual(50);
+    });
+});
+
 
   describe("Updating Brie", function() {
 

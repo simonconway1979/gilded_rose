@@ -11,7 +11,7 @@ var Update = function() {
   Update.prototype.runUpdate = function() {
     this.brie();
     this.standardItem();
-    this.resetNegativeQuality();
+    this.updateQuality();
   };
 
   Update.prototype.brie = function() {
@@ -38,7 +38,7 @@ var Update = function() {
     }
   };
 
-  Update.prototype.resetNegativeQuality = function() {
+  Update.prototype.updateQuality = function() {
     for (var i = 0; i < items.length; i++) {
       if (items[i].quality < 0) {
         items[i].quality = 0;
