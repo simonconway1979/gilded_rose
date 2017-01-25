@@ -16,21 +16,25 @@ var Update = function() {
     this.updateQuality();
   };
 
+  Update.prototype.updateSell_in = function() {
+    for (var i = 0; i < items.length; i++) {
+        items[i].sell_in = items[i].sell_in - 1;
+      }
+    };
 
 
   Update.prototype.brie = function() {
     for (var i = 0; i < items.length; i++) {
       if(items[i].name === "Aged brie") {
-        items[i].sell_in = items[i].sell_in - 1;
         if(items[i].sell_in >= 0) {
           items[i].quality = items[i].quality + 1;
         } else {
           items[i].quality = items[i].quality + 2;
         }
+      this.updateSell_in();
       }
     }
   }
-
 
   Update.prototype.sulfuras = function() {
     for (var i = 0; i < items.length; i++) {
@@ -42,7 +46,6 @@ var Update = function() {
   Update.prototype.backstagePass = function() {
     for (var i = 0; i < items.length; i++) {
       if(items[i].name === "Backstage passes to a TAFKAL80ETC concert") {
-        items[i].sell_in = items[i].sell_in - 1;
         if(items[i].sell_in > 10) {
           items[i].quality = items[i].quality + 1;
         } else if(items[i].sell_in > 4) {
@@ -52,6 +55,7 @@ var Update = function() {
         } else {
           items[i].quality = items[i].quality = 0;
         }
+        this.updateSell_in();
       }
     }
   };
@@ -61,12 +65,12 @@ var Update = function() {
       if(items[i].name != "Aged brie") {
         if(items[i].name != "Sulfuras, Hand of Ragnaros") {
           if(items[i].name != "Backstage passes to a TAFKAL80ETC concert") {
-            items[i].sell_in = items[i].sell_in - 1;
             if(items[i].sell_in >= 0) {
               items[i].quality = items[i].quality - 1;
             } else {
               items[i].quality = items[i].quality - 2;
             }
+            this.updateSell_in();
           }
         }
       }
