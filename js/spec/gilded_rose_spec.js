@@ -82,12 +82,12 @@ describe("Guilded rose", function() {
       expect(items[0].quality).toEqual(-10);
     });
   });
-  
+
   describe("Updating Back Stage Passes", function() {
 
     it("For Back Stage Passes, when sell in > 10, reduces sell in by 1 and quality value increases by 1", function() {
       items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 12, 10) ];
-      update_quality();
+      update.backstagePass();
       expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
       expect(items[0].sell_in).toEqual(11);
       expect(items[0].quality).toEqual(11);
@@ -95,24 +95,15 @@ describe("Guilded rose", function() {
 
     it("For Back Stage Passes, when sell in between 5 and 10, reduces sell in by 1 and quality value increases by 2", function() {
       items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 8, 10) ];
-      update_quality();
+      update.backstagePass();
       expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
       expect(items[0].sell_in).toEqual(7);
       expect(items[0].quality).toEqual(12);
     });
 
-
-    it("For Back Stage Passes, the quality cannot go beyond 50", function() {
-      items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 8, 49) ];
-      update_quality();
-      expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
-      expect(items[0].sell_in).toEqual(7);
-      expect(items[0].quality).toEqual(50);
-    });
-
     it("For Back Stage Passes, when sell in between 0 and 5, reduces sell in by 1 and quality value increases by 3", function() {
       items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 3, 10) ];
-      update_quality();
+      update.backstagePass();
       expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
       expect(items[0].sell_in).toEqual(2);
       expect(items[0].quality).toEqual(13);
@@ -120,7 +111,7 @@ describe("Guilded rose", function() {
 
     it("For Back Stage Passes, when sell in hits 0, the quality value is set to 0", function() {
       items = [ new Item("Backstage passes to a TAFKAL80ETC concert", 0, 10) ];
-      update_quality();
+      update.backstagePass();
       expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
       expect(items[0].sell_in).toEqual(-1);
       expect(items[0].quality).toEqual(0);
@@ -128,7 +119,7 @@ describe("Guilded rose", function() {
 
     it("For Back Stage Passes, when sell in is negative, the quality value is set to 0", function() {
       items = [ new Item("Backstage passes to a TAFKAL80ETC concert", -5, 10) ];
-      update_quality();
+      update.backstagePass();
       expect(items[0].name).toEqual("Backstage passes to a TAFKAL80ETC concert");
       expect(items[0].sell_in).toEqual(-6);
       expect(items[0].quality).toEqual(0);
@@ -219,6 +210,9 @@ describe("Guilded rose", function() {
       expect(items[0].quality).toEqual(-10);
     });
   });
+
+
+
 
 
 });
