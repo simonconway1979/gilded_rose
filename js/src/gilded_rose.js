@@ -8,15 +8,23 @@ var items = [];
 
 var Update = function() {
 
+  Update.prototype.runUpdate = function() {
+    Update.standardItem()
+  }
+
   Update.prototype.standardItem = function() {
     for (var i = 0; i < items.length; i++) {
       items[i].sell_in = items[i].sell_in - 1;
-      if (items[i].quality > 0) {
+      if(items[i].sell_in >= 0) {
         items[i].quality = items[i].quality - 1;
+      } else  {
+        items[i].quality = items[i].quality - 2;
+      }
+      if (items[i].quality < 0) {
+        items[i].quality = 0
       }
     }
   };
-  
 }
 
 
