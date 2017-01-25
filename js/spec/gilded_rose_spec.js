@@ -4,7 +4,7 @@ describe("Guilded rose", function() {
 
     it("On update, it should reduce a standard items sell in by 1 and quality by 1", function() {
       items = [ new Item("Standard", 10, 10) ];
-      update = new Update()
+      update = new Update();
       update.standardItem();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(9);
@@ -15,7 +15,7 @@ describe("Guilded rose", function() {
 
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
       items = [ new Item("Standard", -1, 10) ];
-      update = new Update()
+      update = new Update();
       update.standardItem();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(-2);
@@ -29,7 +29,7 @@ describe("Guilded rose", function() {
 
     it("when quality is negative, the updateQuality method resets to 0", function() {
       items = [ new Item("Standard", 0, -1)];
-      update = new Update()
+      update = new Update();
       update.updateQuality();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(0);
@@ -38,7 +38,7 @@ describe("Guilded rose", function() {
 
     it("when quality is over 50, the updateQuality method resets to 50", function() {
       items = [ new Item("Standard", 0, 51)];
-      update = new Update()
+      update = new Update();
       update.updateQuality();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(0);
@@ -114,7 +114,7 @@ describe("Guilded rose", function() {
 
     it("On update, it should reduce a standard items sell in by 1 and quality by 1", function() {
       items = [ new Item("Standard", 10, 10) ];
-      update = new Update()
+      update = new Update();
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(9);
@@ -124,7 +124,7 @@ describe("Guilded rose", function() {
 
     it("when sell in date is negative, sell in reduces by -1 and quality remains at -2", function() {
       items = [ new Item("Standard", -1, 10) ];
-      update = new Update()
+      update = new Update();
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(-2);
@@ -138,7 +138,7 @@ describe("Guilded rose", function() {
 
     it("when quality is negative, the updateQuality method resets to 0", function() {
       items = [ new Item("Standard", 0, -1)];
-      update = new Update()
+      update = new Update();
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(-1);
@@ -147,7 +147,7 @@ describe("Guilded rose", function() {
 
     it("when quality is over 50, the updateQuality method resets to 50", function() {
       items = [ new Item("Standard", 1, 51)];
-      update = new Update()
+      update = new Update();
       update.runUpdate();
       expect(items[0].name).toEqual("Standard");
       expect(items[0].sell_in).toEqual(0);
