@@ -33,14 +33,7 @@ var Update = function() {
       this.updateSell_in();
       }
     }
-  }
-
-  Update.prototype.sulfuras = function() {
-    for (var i = 0; i < items.length; i++) {
-      if(items[i].name === "Sulfuras, Hand of Ragnaros") {
-      }
-    }
-  }
+  };
 
   Update.prototype.backstagePass = function() {
     for (var i = 0; i < items.length; i++) {
