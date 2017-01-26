@@ -5,13 +5,14 @@ function Item(name, sell_in, quality) {
 }
 
 var items = [];
-var nonStandardItems = ["Aged brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "conjured item"];
+var nonStandardItems = ["Aged brie", "Backstage passes to a TAFKAL80ETC concert", "Sulfuras, Hand of Ragnaros", "Conjured item"];
 
 var Update = function() {
 
   Update.prototype.runUpdate = function() {
     this.brie();
     this.backstagePass();
+    this.conjuredItem();
     this.standardItem();
     this.updateQuality();
   };
